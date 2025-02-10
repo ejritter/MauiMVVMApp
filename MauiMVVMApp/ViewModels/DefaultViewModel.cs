@@ -2,7 +2,7 @@
 public partial class DefaultViewModel : BaseViewModel
 {
     [ObservableProperty]
-    string title = "Welcome to MVVM!";
+    string title = "Welcome to MVVM!!";
 
     [ObservableProperty]
     string submissionText = string.Empty;

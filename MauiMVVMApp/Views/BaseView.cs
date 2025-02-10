@@ -1,4 +1,4 @@
 ﻿namespace MauiMVVMApp.Views;
-internal class BaseView
+public abstract class BaseView
 {
 }

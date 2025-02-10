@@ -1,4 +1,4 @@
 ﻿namespace MauiMVVMApp.ViewModels;
-public partial class BaseViewModel : ObservableObject
+public abstract partial class BaseViewModel : ObservableObject
 {
 }
