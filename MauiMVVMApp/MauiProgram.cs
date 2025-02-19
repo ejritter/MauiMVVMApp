@@ -19,8 +19,13 @@ public static class MauiProgram
         builder.Services.AddSingleton<AppShell>();
         builder.Services.AddSingleton<App>();
 
+        builder.Services.AddTransientPopup<GeneralPopupPage, GeneralPopupViewModel>();
+
         builder.Services.AddTransient<DefaultViewModel>();
         builder.Services.AddTransient<DefaultPage>();
+
+        
+        
         return builder.Build();
     }
 }

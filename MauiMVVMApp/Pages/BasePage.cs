@@ -1,7 +1,11 @@
 ﻿namespace MauiMVVMApp.Pages;
 public abstract class BasePage<TViewModel> : ContentPage where TViewModel : BaseViewModel
 {
-    public abstract void Build();
+    protected BasePage(TViewModel vm)
+    {
+        BindingContext = vm;
+    }
+    protected abstract void Build();
 
     protected override void OnNavigatedTo(NavigatedToEventArgs args)
     {
@@ -28,8 +32,5 @@ public abstract class BasePage<TViewModel> : ContentPage where TViewModel : Base
         });
     }
     
-    public BasePage(TViewModel vm)
-    {
-        BindingContext = vm;
-    }
+  
 }
