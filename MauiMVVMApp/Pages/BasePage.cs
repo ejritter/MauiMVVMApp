@@ -7,6 +7,22 @@ public abstract class BasePage<TViewModel> : ContentPage where TViewModel : Base
     }
     protected abstract void Build();
 
+
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+#if DEBUG
+        HotReloadService.UpdateApplicationEvent += ReloadUi;
+#endif
+    }
+
+    protected override void OnDisappearing()
+    {
+        base.OnDisappearing();
+#if DEBUG
+        HotReloadService.UpdateApplicationEvent -= ReloadUi;
+#endif
+    }
     protected override void OnNavigatedTo(NavigatedToEventArgs args)
     {
         base.OnNavigatedTo(args);

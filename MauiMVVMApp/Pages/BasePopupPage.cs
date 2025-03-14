@@ -15,7 +15,6 @@ public abstract class BasePopupPage<TViewModel> : Popup where TViewModel : BaseP
             Window.Width = appShell.Width * 0.7;
             Window.Height = appShell.Width * 0.7;
         }
-        Build();
 
     }
 
@@ -27,6 +26,14 @@ public abstract class BasePopupPage<TViewModel> : Popup where TViewModel : BaseP
         });
     }
     protected abstract void Build();
+
+    protected override Task OnDismissedByTappingOutsideOfPopup(CancellationToken token = default)
+    {
+#if DEBUG
+        HotReloadService.UpdateApplicationEvent -= ReloadUI;
+#endif
+        return base.OnDismissedByTappingOutsideOfPopup(token);
+    }
 
     protected override Task OnClosed(object? result, bool wasDismissedByTappingOutsideOfPopup, CancellationToken token = default)
     {

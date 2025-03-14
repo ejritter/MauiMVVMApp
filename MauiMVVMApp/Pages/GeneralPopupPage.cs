@@ -4,6 +4,7 @@ public class GeneralPopupPage : BasePopupPage<GeneralPopupViewModel>
 {
     public GeneralPopupPage(GeneralPopupViewModel vm) : base(vm)
     {
+        Build();
     }
 
     protected override void Build()
